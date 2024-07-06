@@ -1,6 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Artists from "./components/Artists";
+import { createRoot } from "react-dom/client";
+import App from "./components/App";
 
+// Get the root element
+const container = document.getElementById("root");
 
-ReactDOM.render(<Artists />, document.getElementById("root"));
+// Create a root
+const root = createRoot(container);
+
+// Initial render
+root.render(<App />);

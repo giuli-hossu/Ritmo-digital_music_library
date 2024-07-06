@@ -22,7 +22,7 @@ const importData = async () => {
     } else {
       // Proceed with data import
       const db = client.db(dbName);
-      const artistsCollection = db.collection('DB-music');
+      const artistsCollection = db.collection('db-music');
 
       await artistsCollection.deleteMany({});
       await artistsCollection.insertMany(data);

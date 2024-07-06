@@ -15,20 +15,22 @@ MongoClient.connect(uri, (err, client) => {
   }
 });
 
-// Ruta pentru a obține toți artiștii din baza de date
+const Artist = require('./models/DB-music');
+
+// Route to get all artists from the database
 app.get('/api/artists', async (req, res) => {
   try {
-    const collection = db.collection('artists'); // Accesăm colecția de artiști din baza de date
-    const artists = await collection.find({}).toArray(); // Obținem toți artiștii sub formă de array
-    res.json(artists); // Returnăm răspunsul sub formă de JSON
+    const artists = await Artist.find({}); // Get all artists as an array
+    res.json(artists); // Return the response as JSON
   } catch (err) {
     console.error('Error fetching artists:', err);
-    res.status(500).json({ error: 'Internal Server Error' }); // Tratează eroarea și returnează un mesaj de eroare
+    res.status(500).json({ error: 'Internal Server Error' }); // Handle the error and return an error message
   }
 });
-  // Pornirea serverului
+
+  // Server
 app.listen(PORT, () => {
-    console.log(`Serverul rulează pe portul ${PORT}`);
+    console.log(`Server runs on ${PORT}`);
   });
 
 
