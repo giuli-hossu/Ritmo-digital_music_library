@@ -1,36 +1,33 @@
 const PORT = process.env.PORT || 5000;
 const express = require('express');
 const app = express();
-app.use(express.json());
-
-// Connect to MongoDB
-const MongoClient = require('mongodb').MongoClient;
+const cors = require('cors');
+const { MongoClient, ObjectId } = require('mongodb');
 const uri = "mongodb://localhost:27017/music_library";
 
-MongoClient.connect(uri, (err, client) => {
-  if (err) {
-    console.error('Failed to connect to the database. Error:', err);
-  } else {
-    console.log('Connected successfully to database');
-  }
-});
-
-const Artist = require('./models/DB-music');
-
-// Route to get all artists from the database
-app.get('/api/artists', async (req, res) => {
+app.use(express.json());
+app.use(cors());
+// Connect to MongoDB and define collection
+const connectToDatabase = async () => {
+  const client = new MongoClient(uri);
   try {
-    const artists = await Artist.find({}); // Get all artists as an array
-    res.json(artists); // Return the response as JSON
+    await client.connect();
+    console.log('Connected successfully to database');
+    return client.db('music_library').collection('DB-music');
   } catch (err) {
-    console.error('Error fetching artists:', err);
-    res.status(500).json({ error: 'Internal Server Error' }); // Handle the error and return an error message
+    console.error('Failed to connect to the database. Error:', err);
+    process.exit(1); // Exit with failure
   }
+};
+
+// Define route to get all artists
+app.get('/api/artists', async (req, res) => {
+  const collection = await connectToDatabase();
+  const artists = await collection.find({}).toArray();
+  res.json(artists);
 });
 
-  // Server
+// Server
 app.listen(PORT, () => {
-    console.log(`Server runs on ${PORT}`);
-  });
-
-
+  console.log(`Server runs on ${PORT}`);
+});
