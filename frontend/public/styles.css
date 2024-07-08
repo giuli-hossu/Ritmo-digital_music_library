@@ -23,6 +23,10 @@ p {
   font-weight: 400;
 }
 
+span {
+  float: right;
+}
+
 #artists {
   margin: 0 5%;
 }
@@ -46,13 +50,30 @@ p {
 }
 
 .card {
-  margin: 0 15px 30px 15px;
+  margin-bottom: 15px;
+  height: fit-content;
 }
 
 .card h3 {
   text-align: center;
 
   margin: 20px 0;
+}
+
+.rotate-icon i {
+  transform: rotate(90deg);
+}
+
+.fw-bold {
+  font-weight: bold;
+  color: #FAC72D;
+}
+
+.card button {
+  position: absolute;
+  right: 0;
+  top: 5px;
+
 }
 
 .card button:hover {
