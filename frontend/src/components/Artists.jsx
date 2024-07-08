@@ -4,6 +4,7 @@ import axios from 'axios';
 function Artists() {
   const [artists, setArtists] = useState([]);
   const [expandedAlbum, setExpandedAlbum] = useState(null);
+  const [selectedArtist, setSelectedArtist] = useState(null); // Starea pentru artistul selectat
 
   useEffect(() => {
     const fetchArtists = async () => {
@@ -27,7 +28,7 @@ function Artists() {
   return (
     <section id="artists" className="row">
       {artists.map(artist => (
-        <article key={artist.name} className="card col-lg-3 col-md-6 col-sm-12 col-xs-12">
+        <article key={artist.name} className={`card col-lg-3 col-md-6 col-sm-12 col-xs-12 ${selectedArtist === artist.name ? 'border-red' : ''}`}>
           <h3 className="card-title">{artist.name}</h3>
           <ul className="list-group list-group-flush">
             {artist.albums.map(album => (
