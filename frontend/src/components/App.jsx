@@ -4,6 +4,7 @@ import Description from "./Description";
 import Search from "./Search";
 import Artists from "./Artists";
 import Footer from "./Footer";
+import AddArtist from "./AddArtists";
 
 function App() {
   // State to keep track of the selected artist, initially an empty string
@@ -16,6 +17,7 @@ function App() {
       <Description />
       <Search setSelectedArtist={setSelectedArtist} />
       <Artists selectedArtist={selectedArtist} />
+      <AddArtist/>
       <Footer />
     </section>
   );

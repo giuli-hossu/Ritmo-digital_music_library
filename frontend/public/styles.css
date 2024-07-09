@@ -47,11 +47,32 @@ span {
   margin-bottom: 5%;
 }
 
-#search h1 {
+#search h1, #add-artist h1  {
   text-align: center;
 
   margin-top: 3%;
   margin-bottom: 3%;
+}
+
+.add-artist{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.add-button{
+  width: 130px;
+  border-color: #FAC72D !important;
+  color: #FAC72D !important;
+}
+
+.album-style
+{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 auto 15px auto;
+  padding: 10px;
 }
 
 .autocomplete-suggestions {
@@ -90,6 +111,10 @@ span {
   color: #B95F89;
 }
 
+.button-section{
+  margin: 0px 9px 15px 9px;
+}
+
 .card {
   margin-bottom: 15px;
   height: fit-content;
@@ -99,6 +124,13 @@ span {
   text-align: center;
 
   margin: 20px 0;
+}
+.delete-label{
+  width: 100%;
+}
+
+.edit-button{  
+  margin: 15px 12px 0px 0px !important;
 }
 
 .fw-bold {
@@ -112,7 +144,7 @@ span {
   top: 5px;
 }
 
-.card button:hover {
+.card button:hover , .trash-button:hover{
   border-color: #FAC72D;
 }
 

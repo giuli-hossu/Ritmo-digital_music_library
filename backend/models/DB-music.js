@@ -20,4 +20,4 @@ const artistSchema = new mongoose.Schema({
 });
 
 // Export the Artist model based on the artistSchema
-module.exports = mongoose.model('Artist', artistSchema);
+module.exports = mongoose.model('Artist', artistSchema,'DB-music');

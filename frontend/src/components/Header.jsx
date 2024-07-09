@@ -6,7 +6,7 @@ function Header() {
       {/* Navigation bar with fixed positioning */}
       <nav className="navbar navbar-expand-lg fixed-top ">
         <a href="/">
-          <img className="navbar-brand logo" src="logo-ritmo.png" />
+          <img className="navbar-brand logo" src="logo-ritmo.png" alt="logo-ritmo" />
         </a>
 
          {/* Navigation Links Section */}
@@ -14,7 +14,7 @@ function Header() {
         data-toggle="collapse" data-target="#navbarNavAltMarkup" 
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
         >
-        <i class="fa-solid fa-bars"style={{ color: '#C4E0F9' }}></i>
+        <i className="fa-solid fa-bars"style={{ color: '#C4E0F9' }}></i>
         </button>
         
          {/* Navigation Links Section */}
@@ -22,7 +22,7 @@ function Header() {
           <div className="navbar-nav">
             <a className="nav-item nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
             <a className="nav-item nav-link" href="#search">Search</a>
-            <a className="nav-item nav-link" href="#artists">Artists</a>
+            <a className="nav-item nav-link" href="#add-artist">Add artist</a>
           </div>
         </div>
       </nav>

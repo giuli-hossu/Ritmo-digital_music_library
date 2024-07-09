@@ -4,7 +4,7 @@ import axios from "axios";
 function Artists({ selectedArtist }) {
   // State to store the list of artists
   const [artists, setArtists] = useState([]);
-  
+
   // State to track which album is expanded
   const [expandedAlbum, setExpandedAlbum] = useState(null);
 
@@ -34,13 +34,16 @@ function Artists({ selectedArtist }) {
       {artists.map(artist => (
         <article
           key={artist.name}
-          className={`card col-lg-3 col-md-6 col-sm-12 col-xs-12 ${
-            selectedArtist === artist.name ? "border border-warning" : ""
-          }`}
+          className={`card col-lg-3 col-md-6 col-sm-12 col-xs-12 ${selectedArtist === artist.name ? "border border-warning" : ""
+            }`}
         >
 
           {/* Display artist name */}
-          <h3 className="card-title">{artist.name}</h3>
+          <section className="card-title">
+            <h3 >{artist.name}</h3>
+            <button className="btn edit-button"><i className="fa-solid fa-pen"></i></button>
+          </section>
+
           <ul className="list-group list-group-flush">
             {/* Map through the albums of the current artist */}
             {artist.albums.map(album => (
@@ -67,7 +70,7 @@ function Artists({ selectedArtist }) {
                     <ol>
                       {/* Map through the songs of the current album */}
                       {album.songs.map(song => (
-                        <li key={song._id}> {song.title} <span>{song.length}</span></li>
+                        <li key={song.title}> {song.title} <span>{song.length}</span></li>
                       ))}
                     </ol>
                   </section>
