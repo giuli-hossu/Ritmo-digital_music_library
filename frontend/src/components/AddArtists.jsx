@@ -86,15 +86,13 @@ function AddArtist() {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-    
-            const savedArtist = await response.json();
-           
+          
             // Optionally handle success feedback or navigation logic
         } catch (error) {
             console.error("Error saving artist data:", error);
             // Optionally handle error feedback
         }
-    
+        window.location.reload();
         // Reset form after saving data
         resetForm();
     };
@@ -139,7 +137,7 @@ function AddArtist() {
                 <label htmlFor={`albumDescription${albumIndex}`}>
                   <h6>Album description</h6>
                 </label>
-                <input
+                <textarea
                   type="text"
                   id={`albumDescription${albumIndex}`}
                   name={`albumDescription${albumIndex}`}

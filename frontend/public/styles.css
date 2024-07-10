@@ -65,6 +65,7 @@ span {
   width: 130px;
   border-color: #FAC72D !important;
   color: #FAC72D !important;
+  margin-bottom: 10px;
 }
 
 .album-style
@@ -130,7 +131,7 @@ span {
 }
 
 .edit-button{  
-  margin: 15px 12px 0px 0px !important;
+  margin: 15px 12px 0px 0px ;
 }
 
 .fw-bold {
@@ -138,11 +139,16 @@ span {
   color: #FAC72D;
 }
 
-.card button {
+.finish-button{
+  margin: 5px 10px;
+  
+}
+
+.card .icon-button {
   position: absolute;
   right: 0;
   top: 5px;
-}
+} 
 
 .card button:hover , .trash-button:hover{
   border-color: #FAC72D;
