@@ -67,7 +67,7 @@ app.use((req, res, next) => {
   next();
 });
 
-
+// UPDATE artist
 app.put('/api/artists/:artistName', async (req, res) => {
   const artistName = req.params.artistName.trim();
   console.log(`Updating artist: ${artistName}`); // Log the artist name
@@ -97,6 +97,7 @@ app.put('/api/artists/:artistName', async (req, res) => {
   }
 });
 
+// DELETE artist
 app.delete('/api/artists/:artistName', async (req, res) => {
   const artistName = req.params.artistName.trim();
   try {
@@ -112,8 +113,7 @@ app.delete('/api/artists/:artistName', async (req, res) => {
 });
 
 
-// Pornirea serverului
-
+// START server
 app.listen(PORT, function () {
-    console.log(`Server is running on http://localhost:${PORT}/`);
+  console.log(`Server is running on http://localhost:${PORT}/`);
 });

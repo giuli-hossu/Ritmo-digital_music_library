@@ -16,7 +16,8 @@ function AddArtist() {
     const [albumDescription, setAlbumDescription] = useState('');
     const [songName, setSongName] = useState('');
     const [songDuration, setSongDuration] = useState('');
-
+    const [errorMessage, setErrorMessage] = useState('');
+    
     // Function to add a new album
     const addAlbum = () => {
         const newAlbum = { albumName, albumDescription, songs: [{ songName, songDuration }] };
@@ -61,6 +62,7 @@ function AddArtist() {
         ]);
     };
 
+    //Function to save form
     const saveData = async () => {
         try {
             const artistData = {
@@ -74,7 +76,14 @@ function AddArtist() {
                     }))
                 }))
             };
-    
+
+            // If  input name is empty
+            if (name.trim() === '') {
+              setErrorMessage('Artist name is required.');
+              alert('Artist name is required.')
+              return;
+            }
+            
             const response = await fetch('http://localhost:5000/api/artists', {
                 method: 'POST',
                 headers: {
@@ -87,12 +96,12 @@ function AddArtist() {
                 throw new Error('Network response was not ok');
             }
           
-            // Optionally handle success feedback or navigation logic
         } catch (error) {
             console.error("Error saving artist data:", error);
-            // Optionally handle error feedback
         }
+
         window.location.reload();
+        
         // Reset form after saving data
         resetForm();
     };

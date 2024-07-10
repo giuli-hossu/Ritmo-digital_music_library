@@ -126,6 +126,7 @@ span {
 
   margin: 20px 0;
 }
+
 .delete-label{
   width: 100%;
 }
@@ -141,7 +142,6 @@ span {
 
 .finish-button{
   margin: 5px 10px;
-  
 }
 
 .card .icon-button {
